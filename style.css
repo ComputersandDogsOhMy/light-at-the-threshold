@@ -1,48 +1,384 @@
-/* Light at the Threshold — main stylesheet */
+/* =========================================
+   LIGHT AT THE THRESHOLD
+   ========================================= */
 
-body {
-  margin: 0;
-  background: #f4efe7;
-  color: #29252b;
-  font-family: Georgia, "Times New Roman", serif;
+:root {
+  --ivory: #f4efe7;
+  --paper: #faf7f2;
+  --ink: #302a32;
+  --plum: #574858;
+  --muted: #766d72;
+  --line: #d8cfc5;
+  --accent: #81706f;
 }
 
-main {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 24px;
+* {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* NAVIGATION */
+
+.site-header {
+  min-height: 90px;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  text-decoration: none;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+nav a:hover {
+  color: var(--ink);
+}
+
+
+/* HERO */
+
 .hero {
-  max-width: 760px;
+  min-height: calc(100vh - 90px);
+  padding: 80px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
+.hero-content {
+  max-width: 900px;
+}
+
+.eyebrow,
+.section-label {
+  margin-bottom: 22px;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
 h1 {
-  margin: 0 0 20px;
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  margin: 0;
+  font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: normal;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #332b36;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
 
 .tagline {
-  margin: 0 auto 24px;
-  font-size: 1.4rem;
+  margin: 32px 0 20px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-style: italic;
-  line-height: 1.5;
-  color: #675868;
+  color: var(--plum);
 }
 
-.location {
+.hero-description {
+  max-width: 650px;
+  margin: 0 auto 40px;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+
+/* BUTTONS */
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 24px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--plum);
+  transition: 0.2s ease;
+}
+
+.button.primary {
+  background: var(--plum);
+  color: white;
+}
+
+.button.primary:hover {
+  background: var(--ink);
+}
+
+.button.secondary {
+  background: transparent;
+}
+
+.button.secondary:hover {
+  background: var(--paper);
+}
+
+
+/* GENERAL SECTIONS */
+
+.section {
+  padding: 120px 8%;
+  border-top: 1px solid var(--line);
+}
+
+.narrow {
+  max-width: 760px;
+  margin: auto;
+}
+
+h2 {
+  margin: 0 0 32px;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: normal;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin: 14px 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.large-text {
+  font-size: 1.3rem;
+  color: var(--plum);
+}
+
+
+/* INTRODUCTION */
+
+.introduction {
+  background: var(--paper);
+}
+
+
+/* SERVICES */
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.service-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.service-card {
+  padding: 50px;
+  background: var(--ivory);
+}
+
+.number {
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.service-card p {
+  color: var(--muted);
+}
+
+
+/* ABOUT */
+
+.about {
+  background: var(--plum);
+  color: var(--paper);
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+}
+
+.about .section-label,
+.about-copy {
+  color: #ddd3dc;
+}
+
+
+/* PRICING */
+
+.pricing-inner {
+  max-width: 1050px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.price-card {
+  padding: 50px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.price {
   margin: 0;
   font-family: Arial, sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #766b70;
+}
+
+.price span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+/* FAQ */
+
+.faq {
+  background: var(--paper);
+}
+
+details {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+details p {
+  color: var(--muted);
+}
+
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+}
+
+.contact .button {
+  margin-top: 25px;
+}
+
+
+/* FOOTER */
+
+footer {
+  padding: 60px 8%;
+  text-align: center;
+  background: var(--ink);
+  color: #ded7dc;
+}
+
+.footer-brand {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+footer p {
+  margin: 8px auto;
+}
+
+.disclaimer {
+  max-width: 650px;
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: #aaa1a7;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+  .site-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .section {
+    padding: 80px 7%;
+  }
+
+  .service-grid,
+  .about-inner,
+  .pricing-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-inner,
+  .pricing-inner {
+    gap: 40px;
+  }
+
+  .service-card {
+    padding: 35px;
+  }
+
 }
