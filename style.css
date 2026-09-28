@@ -33,14 +33,18 @@ a {
 }
 
 
-/* NAVIGATION */
+/* ==========================================
+   NAVIGATION
+   ========================================== */
 
 .site-header {
   min-height: 88px;
   padding: 20px 6%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   background: var(--ivory);
   border-bottom: 1px solid var(--line);
 }
@@ -57,10 +61,12 @@ nav {
 
 nav a {
   text-decoration: none;
+
   font-family: Arial, sans-serif;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+
   color: var(--muted);
 }
 
@@ -71,8 +77,9 @@ nav a {
 
 .hero {
   position: relative;
+
   min-height: calc(100vh - 88px);
-   
+
   background-image: url("8C53B82F-A80B-4302-B1E9-0B993301E657.png");
   background-size: cover;
   background-position: center;
@@ -82,15 +89,11 @@ nav a {
   justify-content: center;
 
   padding: 80px 7%;
+
   text-align: center;
 
   overflow: hidden;
 }
-
-/*
-   Soft translucent layer between the
-   photograph and the words.
-*/
 
 .hero-overlay {
   position: absolute;
@@ -98,8 +101,8 @@ nav a {
 
   background:
     linear-gradient(
-      rgba(245, 240, 232, 0.38),
-      rgba(245, 240, 232, 0.58)
+      rgba(245, 240, 232, 0.30),
+      rgba(245, 240, 232, 0.48)
     );
 }
 
@@ -111,12 +114,12 @@ nav a {
 
   padding: 55px 60px;
 
-  background: rgba(250, 247, 242, 0.76);
+  background: rgba(250, 247, 242, 0.78);
 
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 .eyebrow,
@@ -153,6 +156,7 @@ h1 {
 
 .hero-description {
   max-width: 650px;
+
   margin: 0 auto 40px;
 
   font-size: 1.05rem;
@@ -161,12 +165,16 @@ h1 {
 }
 
 
-/* BUTTONS */
+/* ==========================================
+   BUTTONS
+   ========================================== */
 
 .hero-buttons {
   display: flex;
   justify-content: center;
+
   gap: 14px;
+
   flex-wrap: wrap;
 }
 
@@ -209,6 +217,7 @@ h1 {
 
 .section {
   padding: 110px 8%;
+
   border-top: 1px solid var(--line);
 }
 
@@ -216,6 +225,7 @@ h1 {
 .section > .section-label,
 .section > .section-intro {
   max-width: 850px;
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -296,35 +306,46 @@ h3 {
 }
 
 .about-grid {
-  max-width: 1150px;
+  max-width: 1100px;
+
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: minmax(280px, 0.8fr) minmax(400px, 1.2fr);
-  gap: 75px;
+
+  grid-template-columns: 340px minmax(400px, 1fr);
+
+  gap: 70px;
 
   align-items: start;
 }
 
+
+/* ABOUT PORTRAIT */
+
 .about-photo {
   position: sticky;
   top: 40px;
+
+  width: 100%;
+  max-width: 340px;
+
+  margin: 0 auto;
 }
 
 .about-photo img {
   display: block;
 
   width: 100%;
-  height: 650px;
-
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
 
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
+
+/* ABOUT TEXT */
+
 .about-text {
-  max-width: 720px;
+  max-width: 680px;
 }
 
 .about-section .section-label {
@@ -332,13 +353,13 @@ h3 {
 }
 
 .about-section h2 {
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 
   color: var(--warm-white);
 }
 
 .about-section p {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 
   color: #e4dde3;
 }
@@ -347,10 +368,11 @@ h3 {
 /* PERSONAL INTRODUCTION */
 
 .personal-about {
-  max-width: 950px;
+  max-width: 900px;
 
-  margin: 90px auto 0;
-  padding-top: 65px;
+  margin: 85px auto 0;
+
+  padding-top: 60px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.22);
 
@@ -358,65 +380,29 @@ h3 {
 }
 
 .personal-about .section-label {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .personal-intro {
-  max-width: 750px;
+  max-width: 720px;
 
   margin-left: auto;
   margin-right: auto;
 
-  font-size: 1.1rem;
+  font-size: 1.08rem;
 }
 
 .welcome-statement {
-  max-width: 850px;
+  max-width: 820px;
 
-  margin: 40px auto 0 !important;
+  margin: 38px auto 0 !important;
 
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   line-height: 1.65;
 
   color: white !important;
 }
 
-
-/* ABOUT — TABLET / MOBILE */
-
-@media (max-width: 800px) {
-
-  .about-grid {
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-  }
-
-  .about-photo {
-    position: static;
-
-    max-width: 500px;
-
-    margin: 0 auto;
-  }
-
-  .about-photo img {
-    height: auto;
-    max-height: 650px;
-
-    object-fit: cover;
-  }
-
-  .personal-about {
-    margin-top: 65px;
-    padding-top: 50px;
-  }
-
-  .welcome-statement {
-    font-size: 1.2rem;
-  }
-
-}
 
 /* ==========================================
    PRICING
@@ -613,12 +599,53 @@ footer p:last-child {
     grid-template-columns: 1fr;
   }
 
+
+  /* ABOUT ON SMALLER SCREENS */
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .about-photo {
+    position: static;
+
+    width: 65%;
+    max-width: 300px;
+
+    margin: 0 auto;
+  }
+
+  .about-text {
+    max-width: 650px;
+
+    margin: 0 auto;
+  }
+
+  .personal-about {
+    margin-top: 65px;
+
+    padding-top: 50px;
+  }
+
+  .welcome-statement {
+    font-size: 1.2rem;
+  }
+
+
+  /* PRICING */
+
   .pricing-box {
     padding: 40px 30px;
   }
 
 }
 
+
+/* ==========================================
+   PHONE
+   ========================================== */
 
 @media (max-width: 480px) {
 
@@ -640,6 +667,12 @@ footer p:last-child {
     width: 100%;
 
     max-width: 280px;
+  }
+
+  .about-photo {
+    width: 72%;
+
+    max-width: 270px;
   }
 
   .price {
