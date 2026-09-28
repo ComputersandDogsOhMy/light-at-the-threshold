@@ -658,15 +658,65 @@ footer p {
   margin: 8px auto;
 }
 
-footer p:last-child {
-  margin-top: 25px;
+.footer-brand {
+  margin-bottom: 14px;
 
-  font-family: Arial, sans-serif;
-  font-size: 0.7rem;
+  font-size: 1.45rem;
+
+  color: var(--warm-white);
+}
+
+.footer-contact {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.footer-contact a {
+  text-decoration: none;
+
+  color: var(--warm-white);
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-divider {
+  display: inline-block;
+
+  margin: 0 10px;
 
   color: #aaa2a7;
 }
 
+footer p:last-child {
+  margin-top: 28px;
+
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+
+  color: #aaa2a7;
+}
+
+
+/* FOOTER — SMALL SCREENS */
+
+@media (max-width: 500px) {
+
+  .footer-contact a {
+    display: block;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-contact a + .footer-divider + a {
+    margin-top: 5px;
+  }
+
+}
 
 /* ==========================================
    TABLET
