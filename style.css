@@ -1,15 +1,17 @@
-/* =========================================
+/* ==========================================
    LIGHT AT THE THRESHOLD
-   ========================================= */
+   Main Stylesheet
+   ========================================== */
 
 :root {
-  --ivory: #f4efe7;
-  --paper: #faf7f2;
-  --ink: #302a32;
-  --plum: #574858;
-  --muted: #766d72;
-  --line: #d8cfc5;
-  --accent: #81706f;
+  --ivory: #f5f0e8;
+  --warm-white: #fbf8f3;
+  --ink: #302a31;
+  --plum: #514451;
+  --soft-plum: #756675;
+  --muted: #746d70;
+  --line: #d9d0c6;
+  --light-line: #e8e0d7;
 }
 
 * {
@@ -33,15 +35,18 @@ a {
 }
 
 
-/* NAVIGATION */
+/* ==========================================
+   HEADER & NAVIGATION
+   ========================================== */
 
 .site-header {
-  min-height: 90px;
+  min-height: 88px;
   padding: 20px 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
+  background: rgba(245, 240, 232, 0.96);
 }
 
 .brand {
@@ -56,68 +61,116 @@ nav {
 }
 
 nav a {
+  position: relative;
   text-decoration: none;
   font-family: Arial, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   color: var(--muted);
 }
 
-nav a:hover {
-  color: var(--ink);
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--plum);
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 
-/* HERO */
+/* ==========================================
+   HERO
+   ========================================== */
 
 .hero {
-  min-height: calc(100vh - 90px);
-  padding: 80px 7%;
+  position: relative;
+  min-height: calc(100vh - 88px);
+  padding: 100px 7%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle "threshold" shape behind the title */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  border: 1px solid var(--line);
+  border-radius: 210px 210px 0 0;
+  opacity: 0.75;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 520px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  border: 1px solid var(--light-line);
+  border-radius: 170px 170px 0 0;
 }
 
 .hero-content {
-  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  max-width: 950px;
 }
 
 .eyebrow,
 .section-label {
-  margin-bottom: 22px;
+  margin: 0 0 24px;
   font-family: Arial, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--muted);
 }
 
 h1 {
-  margin: 0;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  max-width: 950px;
+  margin: 0 auto;
+  font-size: clamp(3.7rem, 8.5vw, 7.5rem);
   font-weight: normal;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
 }
 
 .tagline {
-  margin: 32px 0 20px;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin: 38px 0 20px;
+  font-size: clamp(1.4rem, 3vw, 2.05rem);
   font-style: italic;
   color: var(--plum);
 }
 
 .hero-description {
   max-width: 650px;
-  margin: 0 auto 40px;
-  font-size: 1.08rem;
+  margin: 0 auto 42px;
+  font-size: 1.05rem;
   color: var(--muted);
 }
 
 
-/* BUTTONS */
+/* ==========================================
+   BUTTONS
+   ========================================== */
 
 .hero-buttons {
   display: flex;
@@ -128,35 +181,40 @@ h1 {
 
 .button {
   display: inline-block;
-  padding: 14px 24px;
+  padding: 15px 25px;
+  border: 1px solid var(--plum);
   text-decoration: none;
   font-family: Arial, sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: 1px solid var(--plum);
-  transition: 0.2s ease;
+  letter-spacing: 0.12em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .button.primary {
   background: var(--plum);
-  color: white;
+  color: var(--warm-white);
 }
 
 .button.primary:hover {
   background: var(--ink);
+  border-color: var(--ink);
 }
 
 .button.secondary {
-  background: transparent;
+  background: rgba(245, 240, 232, 0.7);
 }
 
 .button.secondary:hover {
-  background: var(--paper);
+  background: var(--warm-white);
 }
 
 
-/* GENERAL SECTIONS */
+/* ==========================================
+   GENERAL SECTIONS
+   ========================================== */
 
 .section {
   padding: 120px 8%;
@@ -165,63 +223,85 @@ h1 {
 
 .narrow {
   max-width: 760px;
-  margin: auto;
+  margin: 0 auto;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 65px;
+  text-align: center;
 }
 
 h2 {
   margin: 0 0 32px;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
   font-weight: normal;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 h3 {
-  margin: 14px 0;
-  font-size: 1.5rem;
+  margin: 14px 0 16px;
+  font-size: 1.55rem;
   font-weight: normal;
+  line-height: 1.25;
+}
+
+p {
+  margin-top: 0;
 }
 
 .large-text {
   font-size: 1.3rem;
+  line-height: 1.65;
   color: var(--plum);
 }
 
 
-/* INTRODUCTION */
+/* ==========================================
+   INTRODUCTION
+   ========================================== */
 
 .introduction {
-  background: var(--paper);
+  background: var(--warm-white);
+}
+
+.introduction .narrow {
+  text-align: center;
 }
 
 
-/* SERVICES */
+/* ==========================================
+   SERVICES
+   ========================================== */
 
-.section-heading {
-  max-width: 700px;
-  margin-bottom: 60px;
+.services {
+  background: var(--ivory);
 }
 
 .service-grid {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1150px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
+  padding: 1px;
   background: var(--line);
-  border: 1px solid var(--line);
 }
 
 .service-card {
+  min-height: 300px;
   padding: 50px;
   background: var(--ivory);
 }
 
 .number {
+  display: block;
+  margin-bottom: 25px;
   font-family: Arial, sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--soft-plum);
 }
 
 .service-card p {
@@ -229,82 +309,144 @@ h3 {
 }
 
 
-/* ABOUT */
+/* ==========================================
+   ABOUT
+   ========================================== */
 
 .about {
   background: var(--plum);
-  color: var(--paper);
+  color: var(--warm-white);
 }
 
 .about-inner {
-  max-width: 1100px;
-  margin: auto;
+  max-width: 1120px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 90px;
 }
 
-.about .section-label,
+.about .section-label {
+  color: #cfc3cd;
+}
+
 .about-copy {
-  color: #ddd3dc;
+  color: #e3dce2;
+}
+
+.about-copy p {
+  margin-bottom: 24px;
+}
+
+.about-closing {
+  padding-top: 20px;
+  font-size: 1.2rem;
+  color: white;
 }
 
 
-/* PRICING */
+/* ==========================================
+   PRICING
+   ========================================== */
 
-.pricing-inner {
+.pricing {
+  background: var(--warm-white);
+}
+
+.pricing-grid {
   max-width: 1050px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .price-card {
   padding: 50px;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--ivory);
+}
+
+.price-label {
+  margin-bottom: 30px;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
 }
 
 .price {
-  margin: 0;
+  margin: 0 0 25px;
   font-family: Arial, sans-serif;
+  color: var(--muted);
 }
 
 .price span {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 4rem;
+  font-size: 4.3rem;
+  color: var(--ink);
+}
+
+.custom-price {
+  margin: 0 0 28px;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: var(--plum);
 }
 
 .small {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
 
-/* FAQ */
+/* ==========================================
+   SERVICE AREA
+   ========================================== */
+
+.service-area {
+  text-align: center;
+  background: var(--ivory);
+}
+
+
+/* ==========================================
+   FAQ
+   ========================================== */
 
 .faq {
-  background: var(--paper);
+  background: var(--warm-white);
+}
+
+.faq h2 {
+  margin-bottom: 50px;
 }
 
 details {
-  padding: 22px 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--line);
+}
+
+details:first-of-type {
+  border-top: 1px solid var(--line);
 }
 
 summary {
   cursor: pointer;
+  padding-right: 25px;
   font-size: 1.2rem;
 }
 
 details p {
+  padding: 15px 30px 0 0;
   color: var(--muted);
 }
 
 
-/* CONTACT */
+/* ==========================================
+   CONTACT
+   ========================================== */
 
 .contact {
   text-align: center;
@@ -315,70 +457,119 @@ details p {
 }
 
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+   ========================================== */
 
 footer {
-  padding: 60px 8%;
+  padding: 65px 8%;
   text-align: center;
   background: var(--ink);
-  color: #ded7dc;
+  color: #ddd6db;
 }
 
 .footer-brand {
-  margin: 0 0 8px;
-  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-size: 1.55rem;
 }
 
 footer p {
-  margin: 8px auto;
+  margin-bottom: 8px;
 }
 
 .disclaimer {
   max-width: 650px;
-  margin-top: 30px;
+  margin: 30px auto 0;
   font-family: Arial, sans-serif;
-  font-size: 0.72rem;
-  line-height: 1.6;
-  color: #aaa1a7;
+  font-size: 0.7rem;
+  line-height: 1.7;
+  color: #aaa2a7;
 }
 
 
-/* MOBILE */
+/* ==========================================
+   TABLET & MOBILE
+   ========================================== */
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
 
   .site-header {
     flex-direction: column;
     gap: 15px;
+    padding: 20px 5%;
   }
 
   nav {
-    gap: 14px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .hero {
     min-height: 80vh;
+    padding: 90px 7%;
+  }
+
+  .hero::before {
+    width: 300px;
+    height: 470px;
+  }
+
+  .hero::after {
+    width: 245px;
+    height: 410px;
   }
 
   .section {
-    padding: 80px 7%;
+    padding: 85px 7%;
   }
 
   .service-grid,
   .about-inner,
-  .pricing-inner {
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
-  .about-inner,
-  .pricing-inner {
+  .about-inner {
     gap: 40px;
   }
 
-  .service-card {
-    padding: 35px;
+  .service-card,
+  .price-card {
+    padding: 38px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  nav {
+    font-size: 0.7rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero::before {
+    width: 260px;
+    height: 420px;
+  }
+
+  .hero::after {
+    width: 210px;
+    height: 365px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
   }
 
 }
