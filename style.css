@@ -1,0 +1,48 @@
+/* Light at the Threshold — main stylesheet */
+
+body {
+  margin: 0;
+  background: #f4efe7;
+  color: #29252b;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+.hero {
+  max-width: 760px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #332b36;
+}
+
+.tagline {
+  margin: 0 auto 24px;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: #675868;
+}
+
+.location {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #766b70;
+}
